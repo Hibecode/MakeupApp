@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.makeupapp.api.MakeupApi
 import com.example.makeupapp.repository.Repository
 import com.example.makeupapp.repository.RepositoryImpl
+import com.example.makeupapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,19 +17,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
-    @Singleton
-    fun provideConverterFactory(): GsonConverterFactory =
-        GsonConverterFactory.create()
 
     @Provides
     @Singleton
-    fun provideApi(
-        gsonConverterFactory: GsonConverterFactory
-    ): MakeupApi {
+    fun provideApi(): MakeupApi {
         return Retrofit.Builder()
-            .baseUrl("http://makeup-api.herokuapp.com/")
-            .addConverterFactory(gsonConverterFactory)
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MakeupApi::class.java)
     }
