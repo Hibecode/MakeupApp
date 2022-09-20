@@ -7,4 +7,5 @@
     <string name="brand_name">BrandName</string>
     <string name="product_name">ProductName</string>
     <string name="price">Price</string>
+    <string name="description">Description</string>
 </resources>
