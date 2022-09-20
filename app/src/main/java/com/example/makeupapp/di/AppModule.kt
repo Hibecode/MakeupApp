@@ -1,6 +1,8 @@
 package com.example.makeupapp.di
 
 import com.example.makeupapp.api.MakeupApi
+import com.example.makeupapp.repository.Repository
+import com.example.makeupapp.repository.RepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,6 +23,12 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MakeupApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideRepository(api: MakeupApi): Repository {
+        return RepositoryImpl(api)
     }
 
 
