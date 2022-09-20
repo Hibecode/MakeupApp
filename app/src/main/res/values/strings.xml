@@ -3,4 +3,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="main_home_text">Makeup Brand Collections</string>
+    <string name="productimage">ProductImage</string>
+    <string name="brand_name">BrandName</string>
+    <string name="product_name">ProductName</string>
+    <string name="price">Price</string>
 </resources>
