@@ -10,4 +10,6 @@ class MakeupViewModel @Inject constructor(
     val repository: Repository
 ): ViewModel() {
 
+
+
 }

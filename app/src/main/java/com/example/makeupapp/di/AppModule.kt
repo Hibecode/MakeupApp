@@ -1,5 +1,6 @@
 package com.example.makeupapp.di
 
+import android.app.Application
 import com.example.makeupapp.api.MakeupApi
 import com.example.makeupapp.repository.Repository
 import com.example.makeupapp.repository.RepositoryImpl
@@ -17,18 +18,25 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApi(): MakeupApi {
+    fun provideConverterFactory(): GsonConverterFactory =
+        GsonConverterFactory.create()
+
+    @Provides
+    @Singleton
+    fun provideApi(
+        gsonConverterFactory: GsonConverterFactory
+    ): MakeupApi {
         return Retrofit.Builder()
             .baseUrl("http://makeup-api.herokuapp.com/")
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(gsonConverterFactory)
             .build()
             .create(MakeupApi::class.java)
     }
 
     @Provides
     @Singleton
-    fun provideRepository(api: MakeupApi): Repository {
-        return RepositoryImpl(api)
+    fun provideRepository(api: MakeupApi, app: Application): Repository {
+        return RepositoryImpl(api, app)
     }
 
 
