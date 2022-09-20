@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.makeupapp.databinding.FragmentMakeupProductBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MakeupProductFragment : Fragment() {
 
     private var _binding: FragmentMakeupProductBinding? = null
