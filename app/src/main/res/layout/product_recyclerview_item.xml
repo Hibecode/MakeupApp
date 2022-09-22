@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="160dp"
-android:layout_height="222dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="160dp"
+    android:layout_height="222dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginStart="16dp">
 
     <ImageView
     android:layout_width="160dp"
@@ -26,6 +28,7 @@ android:layout_height="222dp">
             android:id="@+id/ivProductImage"
             android:layout_width="match_parent"
             android:layout_height="133dp"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/productimage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,18 +60,6 @@ android:layout_height="222dp">
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvBrandName" />
-
-        <TextView
-            android:id="@+id/tvPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/price"
-            android:textColor="@color/black"
-            android:textSize="@dimen/textSize14"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivProductImage" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

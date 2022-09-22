@@ -1,5 +1,6 @@
 package com.example.makeupapp.utils
 
+// Used for state management
 sealed class Resource<T>(
     val data: T? = null,
     val message: String? = null

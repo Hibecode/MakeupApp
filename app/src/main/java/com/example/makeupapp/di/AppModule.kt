@@ -2,8 +2,6 @@ package com.example.makeupapp.di
 
 import android.app.Application
 import com.example.makeupapp.api.MakeupApi
-import com.example.makeupapp.repository.Repository
-import com.example.makeupapp.repository.RepositoryImpl
 import com.example.makeupapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -27,14 +25,6 @@ object AppModule {
             .build()
             .create(MakeupApi::class.java)
     }
-
-    @Provides
-    @Singleton
-    fun provideRepository(api: MakeupApi, app: Application): Repository {
-        return RepositoryImpl(api, app)
-    }
-
-
 
 
 }
