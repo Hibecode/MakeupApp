@@ -28,7 +28,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding get() = _binding!!
 
     private val viewModel: MakeupViewModel by viewModels()
-    private lateinit var adapter: ParentBrandAdapter
+    private val adapter by lazy { ParentBrandAdapter() }
 
     private var isLoading = false
 
@@ -40,11 +40,17 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        setUpRecyclerView()
+        setupRecyclerview()
         loadData()
 
         return view
    }
+
+    private fun setupRecyclerview() {
+        // Sets up recyclerView
+        binding.rvParent.adapter = adapter
+        binding.rvParent.layoutManager = LinearLayoutManager(activity)
+    }
 
     private fun loadData() {
         viewModel.loadProductsList()
@@ -83,12 +89,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         isLoading = false
     }
 
-
-    // Sets up recyclerView
-    private fun setUpRecyclerView() {
-        binding.rvParent.adapter = adapter
-        binding.rvParent.layoutManager = LinearLayoutManager(activity)
-    }
 
     // This groups products with similar brands together
     private fun groupProductsByBrand(productsList: ProductsList): MutableList<GroupedProductsList> {

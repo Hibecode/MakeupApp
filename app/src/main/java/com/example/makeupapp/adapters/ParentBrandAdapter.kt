@@ -21,7 +21,7 @@ import timber.log.Timber
 
 
 // Parent Adapter for the vertical scroll list of images
-class ParentBrandAdapter(private val view: View): RecyclerView.Adapter<ParentBrandAdapter.ParentBrandAdapter>() {
+class ParentBrandAdapter: RecyclerView.Adapter<ParentBrandAdapter.ParentBrandAdapter>() {
 
     inner class ParentBrandAdapter(val binding: ProductRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root)
 
