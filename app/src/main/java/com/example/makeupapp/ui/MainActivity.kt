@@ -1,12 +1,13 @@
-package com.example.makeupapp
+package com.example.makeupapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.example.makeupapp.R
 import com.example.makeupapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,14 +24,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         // Set up back navigation
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.NavHostFragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.NavHostFragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
 
         setupActionBarWithNavController(
-            navController = navController,
-            configuration = appBarConfiguration
+            navController = navController, configuration = appBarConfiguration
         )
     }
 

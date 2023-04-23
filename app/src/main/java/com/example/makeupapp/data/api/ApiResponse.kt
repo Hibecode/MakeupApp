@@ -1,13 +1,10 @@
-package com.example.makeupapp.data
+package com.example.makeupapp.data.api
 
-import android.app.Application
-import android.widget.Toast
-import com.example.makeupapp.models.ProductsList
-import com.example.makeupapp.utils.Resource
+import com.example.makeupapp.data.model.ProductsList
 import retrofit2.Response
 import timber.log.Timber
 
-abstract class ApiResponse() {
+abstract class ApiResponse {
 
     //This checks whether the response is successful or not and sends the result
     suspend fun safeApiCall(
@@ -27,8 +24,15 @@ abstract class ApiResponse() {
             return error(e.message ?: e.toString())
         }
     }
+
     private fun error(errorMessage: String): Resource<ProductsList> =
         Resource.Error("Api call failed $errorMessage")
+}
 
-
+sealed class Resource<T>(
+    val data: T? = null, val message: String? = null
+) {
+    class Success<T>(data: T) : Resource<T>(data)
+    class Error<T>(message: String?, data: T? = null) : Resource<T>(data, message)
+    class Loading<T> : Resource<T>()
 }
