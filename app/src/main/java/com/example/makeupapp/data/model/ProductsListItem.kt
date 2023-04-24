@@ -1,4 +1,4 @@
-package com.example.makeupapp.models
+package com.example.makeupapp.data.model
 
 import java.io.Serializable
 
@@ -23,4 +23,9 @@ data class ProductsListItem(
     val product_api_url: String? = null,
     val api_featured_image: String? = null,
     val product_colors: List<ProductColor?>? = null
-): Serializable
+) : Serializable
+
+data class ProductColor(
+    val hex_value: String,
+    val colour_name: String
+)

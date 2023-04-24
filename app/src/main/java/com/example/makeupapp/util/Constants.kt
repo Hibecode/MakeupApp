@@ -1,4 +1,4 @@
-package com.example.makeupapp.utils
+package com.example.makeupapp.util
 
 class Constants {
 

@@ -7,23 +7,29 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.makeupapp.HomeFragment"
+        android:name="com.example.makeupapp.ui.home.HomeFragment"
         android:label="Makeup App"
         tools:layout="@layout/fragment_home" >
+
         <action
             android:id="@+id/action_homeFragment_to_makeupProductFragment"
             app:destination="@id/makeupProductFragment" />
+
     </fragment>
+
     <fragment
         android:id="@+id/makeupProductFragment"
-        android:name="com.example.makeupapp.MakeupProductFragment"
+        android:name="com.example.makeupapp.ui.product.MakeupProductFragment"
         android:label="Makeup Product"
         tools:layout="@layout/fragment_makeup_product" >
+
         <!--Set argument as nullable-->
         <argument
             android:name="productListItem"
             android:defaultValue="@null"
             app:nullable="true"
-            app:argType="com.example.makeupapp.models.ProductsListItem" />
+            app:argType="com.example.makeupapp.data.model.ProductsListItem" />
+
     </fragment>
+
 </navigation>

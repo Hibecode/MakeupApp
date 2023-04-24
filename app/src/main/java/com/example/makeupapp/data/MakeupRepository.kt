@@ -1,29 +1,21 @@
 package com.example.makeupapp.data
 
-import android.app.Application
-import com.example.makeupapp.api.MakeupApi
-import com.example.makeupapp.models.ProductsList
-import com.example.makeupapp.utils.Resource
+import com.example.makeupapp.data.api.ApiResponse
+import com.example.makeupapp.data.api.MakeupApiService
+import com.example.makeupapp.data.api.Resource
+import com.example.makeupapp.data.model.ProductsList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-
-class Repository @Inject constructor(
-    private val api: MakeupApi,
-    private val appContext: Application
-): ApiResponse() {
-
-
+class MakeupRepository @Inject constructor(private val api: MakeupApiService) : ApiResponse() {
 
     suspend fun getProducts(): Flow<Resource<ProductsList>> {
         return flow {
             // Emit the data to the stream
-            emit(
-                safeApiCall { api.getProducts() }
-            )
+            emit(safeApiCall { api.getProducts() })
         }.flowOn(Dispatchers.IO) // Use the IO thread for this Flow
     }
 }
