@@ -25,6 +25,9 @@ class MakeupViewModel @Inject constructor(
     private val _loading: MutableLiveData<Boolean> = MutableLiveData()
     val loading: LiveData<Boolean> = _loading
 
+    private val _errorMessage: MutableLiveData<String> = MutableLiveData()
+    val errorMessage: LiveData<String> = _errorMessage
+
     init {
         loadProductsList()
     }
@@ -42,6 +45,7 @@ class MakeupViewModel @Inject constructor(
                 }
                 is Resource.Error -> {
                     // show error message
+                    _errorMessage.value = "Unable to get response!"
                     _loading.value = false
                     Timber.tag("HomeFragment-Error").d(response.message)
                 }

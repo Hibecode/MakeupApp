@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.makeupapp.ui.home.HomeFragment"
         android:label="Makeup App"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
 
         <action
             android:id="@+id/action_homeFragment_to_makeupProductFragment"
@@ -17,19 +17,19 @@
 
     </fragment>
 
-    <fragment
+    <dialog
         android:id="@+id/makeupProductFragment"
         android:name="com.example.makeupapp.ui.product.MakeupProductFragment"
         android:label="Makeup Product"
-        tools:layout="@layout/fragment_makeup_product" >
+        tools:layout="@layout/fragment_makeup_product">
 
         <!--Set argument as nullable-->
         <argument
             android:name="productListItem"
             android:defaultValue="@null"
-            app:nullable="true"
-            app:argType="com.example.makeupapp.data.model.ProductsListItem" />
+            app:argType="com.example.makeupapp.data.model.ProductsListItem"
+            app:nullable="true" />
 
-    </fragment>
+    </dialog>
 
 </navigation>

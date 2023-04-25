@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:fillViewport="true"
+    android:fitsSystemWindows="false"
     tools:context=".ui.product.MakeupProductFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +40,7 @@
             android:id="@+id/tvProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/product_name"
             android:textColor="@color/black"
             android:textSize="@dimen/textSize24"
