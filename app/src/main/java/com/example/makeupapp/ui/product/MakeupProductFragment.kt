@@ -5,19 +5,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.navArgs
+import com.example.makeupapp.R
 import com.example.makeupapp.databinding.FragmentMakeupProductBinding
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
 @AndroidEntryPoint
-class MakeupProductFragment : Fragment() {
+class MakeupProductFragment : DialogFragment() {
 
     private var _binding: FragmentMakeupProductBinding? = null
     private val binding get() = _binding!!
     private val arg: MakeupProductFragmentArgs by navArgs()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NO_FRAME, R.style.AppThemeFullScreenDialog)
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(

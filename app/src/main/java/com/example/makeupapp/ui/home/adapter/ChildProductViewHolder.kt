@@ -15,7 +15,9 @@ class ChildProductViewHolder(
         binding.apply {
             tvBrandName.text = productItem.brand
             tvProductName.text = productItem.name
-            Picasso.get().load(productItem.image_link).into(ivProductImage)
+            productItem.image_link?.let { imageLink ->
+                Picasso.get().load(imageLink).into(ivProductImage)
+            }
 
             //Once the item view is clicked the item product data is passed to the
             root.setOnClickListener {

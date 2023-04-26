@@ -2,10 +2,8 @@ package com.example.makeupapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.makeupapp.R
 import com.example.makeupapp.databinding.ActivityMainBinding
@@ -33,10 +31,5 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(
             navController = navController, configuration = appBarConfiguration
         )
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(this, R.id.NavHostFragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
